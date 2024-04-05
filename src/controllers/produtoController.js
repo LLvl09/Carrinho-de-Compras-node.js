@@ -1,6 +1,16 @@
 const express = require('express');
 const Produto = require('../models/Produto');
 
+exports.registrar= async (req, res, next) => {
+    try {
+        const { nome, preco, estoque } = req.body;
+        const novoProduto = await Produto.create({ nome, preco, estoque });
+        res.status(201).json({ success: true, produto: novoProduto });
+      } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+      }
+    }
+}
 exports.get = async (req, res, next) => {
     try {
         const produtos = await Produto.findAll();
