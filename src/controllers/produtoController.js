@@ -10,7 +10,7 @@ exports.registrar= async (req, res, next) => {
         res.status(500).json({ success: false, error: error.message });
       }
     }
-}
+
 exports.get = async (req, res, next) => {
     try {
         const produtos = await Produto.findAll();

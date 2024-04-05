@@ -16,6 +16,7 @@ router.delete('/carrinho/limpar', authenticateToken, carrinhoController.limpar);
 
 router.post('/pedido', authenticateToken, pedidoController.confirmar);
 
+router.post('/produto', produtoController.registrar);
 router.get('/produtos', produtoController.get);
 router.get('/produto:id', produtoController.getById);
 module.exports = router;
